@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Giow Music Player</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+</head>
+
+<body>
+
+    <header class="encabezado">
+
+        <div>
+            <h1>Giow Music Player</h1>
+
+            <p
+                id="estadoServidor"
+                class="estado-servidor"
+            >
+                Servidor sin comprobar
+            </p>
+        </div>
+
+        <div class="acciones-encabezado">
+
+            <button
+                id="botonProbarConexion"
+                type="button"
+            >
+                Probar conexión
+            </button>
+
+            <button
+                id="botonActualizar"
+                type="button"
+            >
+                Actualizar
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="contenido-principal">
+
+        <aside class="panel-conexion">
+
+            <h2>Conexión</h2>
+
+            <label for="direccionServidor">
+                Dirección de Giow Media Server
+            </label>
+
+            <input
+                id="direccionServidor"
+                type="url"
+                value="http://192.168.1.50:5245"
+                placeholder="http://IP-DE-WINDOWS:5245"
+            >
+
+            <p class="texto-secundario">
+                La Mac y Windows deben estar conectados a la misma red.
+            </p>
+
+            <button
+                id="botonGuardarDireccion"
+                type="button"
+            >
+                Guardar dirección
+            </button>
+
+            <hr>
+
+            <h2>Biblioteca</h2>
+
+            <p
+                id="contadorCanciones"
+                class="contador"
+            >
+                0 canciones
+            </p>
+
+            <p class="texto-secundario">
+                Selecciona una canción para reproducirla directamente desde el servidor.
+            </p>
+
+        </aside>
+
+        <section class="panel-biblioteca">
+
+            <h2>Música del servidor</h2>
+
+            <div
+                id="mensajeVacio"
+                class="mensaje-vacio"
+            >
+                <span class="icono-musica">♫</span>
+
+                <p>No hay canciones disponibles.</p>
+            </div>
+
+            <div
+                id="listaCanciones"
+                class="lista-canciones"
+            >
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="reproductor">
+
+        <div class="informacion-reproduccion">
+
+            <strong id="cancionActual">
+                Ninguna canción seleccionada
+            </strong>
+
+            <span id="estadoReproduccion">
+                Detenido
+            </span>
+
+        </div>
+
+        <div class="controles">
+
+            <button
+                id="botonAnterior"
+                type="button"
+            >
+                ⏮ Anterior
+            </button>
+
+            <button
+                id="botonReproducir"
+                type="button"
+            >
+                ▶ Reproducir
+            </button>
+
+            <button
+                id="botonPausar"
+                type="button"
+            >
+                ⏸ Pausar
+            </button>
+
+            <button
+                id="botonDetener"
+                type="button"
+                class="boton-detener"
+            >
+                ■ Detener
+            </button>
+
+            <button
+                id="botonSiguiente"
+                type="button"
+            >
+                Siguiente ⏭
+            </button>
+
+        </div>
+
+        <div class="progreso">
+
+            <span id="tiempoActual">
+                0:00
+            </span>
+
+            <input
+                id="barraProgreso"
+                type="range"
+                min="0"
+                max="100"
+                value="0"
+                step="0.1"
+            >
+
+            <span id="duracionTotal">
+                0:00
+            </span>
+
+        </div>
+
+        <audio
+            id="reproductorAudio"
+            preload="metadata"
+        >
+        </audio>
+
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

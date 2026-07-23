@@ -1,0 +1,339 @@
+:root {
+    --fondo: #101826;
+    --panel: #172033;
+    --panel-secundario: #111827;
+    --borde: #26344d;
+    --principal: #2563eb;
+    --principal-hover: #1d4ed8;
+    --texto: #ffffff;
+    --texto-secundario: #94a3b8;
+    --error: #ef4444;
+    --correcto: #4ade80;
+    --advertencia: #f59e0b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 11px 16px;
+    background: var(--principal);
+    color: white;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease;
+}
+
+button:hover {
+    background: var(--principal-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+input[type="url"] {
+    width: 100%;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 12px;
+    background: white;
+    color: #111827;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 28px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--borde);
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.estado-servidor {
+    margin: 6px 0 0;
+    color: var(--texto-secundario);
+}
+
+.estado-correcto {
+    color: var(--correcto);
+}
+
+.estado-error {
+    color: var(--error);
+}
+
+.estado-advertencia {
+    color: var(--advertencia);
+}
+
+.acciones-encabezado {
+    display: flex;
+    gap: 10px;
+}
+
+.contenido-principal {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 20px;
+    padding: 20px;
+    padding-bottom: 200px;
+}
+
+.panel-conexion,
+.panel-biblioteca {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.panel-conexion {
+    align-self: start;
+}
+
+.panel-conexion h2,
+.panel-biblioteca h2 {
+    margin-top: 0;
+}
+
+.panel-conexion label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.panel-conexion button {
+    width: 100%;
+}
+
+.texto-secundario {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--borde);
+    margin: 22px 0;
+}
+
+.contador {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.lista-canciones {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.cancion {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    background: var(--panel-secundario);
+    color: var(--texto);
+    text-align: left;
+}
+
+.cancion:hover {
+    background: #1e293b;
+}
+
+.cancion.seleccionada {
+    border-color: var(--principal);
+    background: #172554;
+}
+
+.icono-cancion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: var(--principal);
+    font-size: 22px;
+}
+
+.informacion-cancion {
+    min-width: 0;
+}
+
+.nombre-cancion {
+    display: block;
+    overflow: hidden;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.extension-cancion {
+    display: block;
+    margin-top: 4px;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.tamano-cancion {
+    color: var(--texto-secundario);
+    white-space: nowrap;
+}
+
+.mensaje-vacio {
+    display: flex;
+    min-height: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--texto-secundario);
+}
+
+.icono-musica {
+    color: var(--principal);
+    font-size: 70px;
+}
+
+.reproductor {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    gap: 12px;
+    padding: 16px 24px;
+    background: rgba(23, 32, 51, 0.98);
+    border-top: 1px solid var(--borde);
+    backdrop-filter: blur(12px);
+}
+
+.informacion-reproduccion {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.informacion-reproduccion span {
+    color: var(--texto-secundario);
+    font-size: 13px;
+}
+
+.controles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.boton-detener {
+    background: #b91c1c;
+}
+
+.boton-detener:hover {
+    background: #991b1b;
+}
+
+.progreso {
+    display: grid;
+    grid-template-columns: 45px minmax(0, 1fr) 45px;
+    align-items: center;
+    gap: 10px;
+}
+
+.progreso span {
+    color: var(--texto-secundario);
+    font-size: 12px;
+    text-align: center;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--principal);
+}
+
+.oculto {
+    display: none;
+}
+
+@media (max-width: 850px) {
+    .encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .contenido-principal {
+        grid-template-columns: 1fr;
+    }
+
+    .acciones-encabezado {
+        width: 100%;
+    }
+
+    .acciones-encabezado button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .contenido-principal {
+        padding: 12px;
+        padding-bottom: 250px;
+    }
+
+    .encabezado {
+        padding: 18px;
+    }
+
+    .reproductor {
+        padding: 14px;
+    }
+
+    .controles button {
+        flex: 1;
+    }
+
+    .cancion {
+        grid-template-columns: 42px minmax(0, 1fr);
+    }
+
+    .tamano-cancion {
+        display: none;
+    }
+}
