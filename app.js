@@ -69,7 +69,7 @@ function obtenerDireccionServidor() {
 
     if (!direccion) {
         direccion =
-            "http://192.168.1.50:5245";
+            "http://10.0.0.43:5245";
     }
 
     return direccion.replace(/\/+$/, "");
